@@ -57,3 +57,5 @@ Actualizar sin aplicarlos los cambios.
 
 Para listar información 
 >systemd-resolve --status
+
+[Linux](Linux/Linux.md)
