@@ -1,3 +1,5 @@
+# Configuracion IP en Linux
+
 ## Netplan (> Ubuntu17)
 - Desaparece: ifconfig, traceroute, route, ...
 - Nuevos: ip address show, ip route show,
