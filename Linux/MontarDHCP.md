@@ -1,4 +1,41 @@
 # Montar Servidor DHCP en Ubuntu Server
 
-1. [Configurar una IP fija](./ConfiguracionIP.md)
-2.
+### Configuración de red
+Se ha de configurar un [IP fija en el servidor](./ConfiguracionIP.md)
+
+### Instalar software de servidor DHCP
+
+```linux
+sudo apt install isc-dhcp-server -y
+```
+
+### Configurar
+#### Abrir el fichero **dhcpd.conf** con tu editor favorito.
+
+```linux
+sudo sudo dhcpd.conf
+```
+#### Modificar opciones nombre de dominio y nombre del servidor
+
+```conf
+option domain-name "dominio.intranet";
+option domain-name-servers ns1.dominio.intranet, ns2.dominio.intranet;
+```
+
+#### Agregamos la configuración de subred
+```conf
+subnet 192.168.10.0 netmask 255.255.255.0 {
+  range 192.168.10.100 192.168.10.200;
+  option routers 192.168.10.1;
+}
+```
+
+#### Aplicamos los cambios
+```linux
+sudo systemctl restart isc-dhcp-server.service
+```
+
+#### Comprobar lista de IP asignadas
+```linux
+dhcp-lease-list
+```
