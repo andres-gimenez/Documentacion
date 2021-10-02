@@ -12,7 +12,7 @@
 
 ### Madness
 
-Servidor de markdown conDocker.
+Servidor de markdown con Docker.
 
 [Madness - Instant Markdown Server](https://madness.dannyb.co/)
 

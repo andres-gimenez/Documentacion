@@ -1,9 +1,9 @@
 # Configuracion IP en Linux
 
 ## Netplan (> Ubuntu17)
+
 - Desaparece: ifconfig, traceroute, route, ...
 - Nuevos: ip address show, ip route show,
-
 - YAML
 - Antes: /etc/network/interfaces
 - Ahora: /etc/netplan
@@ -13,7 +13,8 @@
 > En el directorio /etc/netplan
 
 Fichero 00-installer-config.yaml
-``` yaml
+
+```yaml
 network:
   renderer: networkd
   ethernets:
@@ -27,7 +28,7 @@ network:
 
 ### Ejemplo de IP Fija
 
-``` yaml
+```yaml
 network:
   renderer: networkd
   ethernets:
@@ -39,14 +40,27 @@ network:
         addresses: [8.8.8.8, 8.8.4.4]
   version: 2
 ```
-Para ver el nombre del adaptador:
-> ip address show
 
-Actualizar configuración, revisando la sintaxis:
-> netplan apply
- 
-Actualizar sin aplicarlos los cambios.
->netplan generate
+#### Para ver el nombre del adaptador:
 
-Para listar información 
->systemd-resolve --status
+```linux
+ip address show
+```
+
+#### Actualizar sin aplicarlos los cambios.
+
+```linux
+netplan generate
+```
+
+#### Actualizar configuración, revisando la sintaxis:
+
+```linux
+netplan apply
+```
+
+#### Para listar información
+
+```linux
+systemd-resolve --status
+```
