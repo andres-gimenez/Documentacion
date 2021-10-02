@@ -1,5 +1,5 @@
 # Apuntes y documentación
 
-[Linux](Linux/Linux.md)
+[Linux](Linux/README.md)
 
-[Markdown](./Markdown/Markdown.md)
+[Markdown](./Markdown/README.md)
