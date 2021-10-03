@@ -35,6 +35,23 @@ subnet 192.168.10.0 netmask 255.255.255.0 {
 sudo systemctl restart isc-dhcp-server.service
 ```
 
+#### Comandos dhcp server
+Arrancar, parar o reiniciar el servicio
+```linux
+sudo service isc-dhcp-server [restart|start|stop|status]
+```
+```linux
+sudo systemctl [restart|start|stop|status] isc-dhcp-server.service
+```
+
+#### Crear direcciones IP Fijas
+```linux
+host esxi02 {
+  hardware ethernet 00:0c:29:c0:a0:19;
+  fixed-address 10.1.1.12;
+}
+```
+
 #### Comprobar lista de IP asignadas
 ```linux
 dhcp-lease-list

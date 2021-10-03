@@ -1,5 +1,15 @@
 # Comandos de red para Ubuntu
 
+## Comandos basicos
+
+### Ping
+Utiliza el protocolo ICMP para comprobar que un equipo está activo en la red. 
+Tambien nos puede permitir resolver un nombre DNS.
+
+```linux
+ping [ip][nombre de dominio]
+```
+
 ### Muestra configuración de red
 
 ```linux
@@ -59,4 +69,24 @@ nmcli con show
 #### Para cambiar de red Wifi
 ```linux
 nmcli con down ssid/uuid
+```
+
+## DNS
+
+
+### NSLOOKUP
+Existe tanto en Windows como Linux. 
+Nos permite resolver nombres DNS, indicando la dirección IP a la que apunta y el servidor que nos ha respondido.
+
+
+```command
+nslookup [nombre dominio]
+```
+
+Para consultar los registors de recursos (RR) de un tipo concreto usamo **set type=[tipo]**
+
+```command
+nslookup 
+> Set Type=NS
+> upv.es
 ```
