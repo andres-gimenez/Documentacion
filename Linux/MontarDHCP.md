@@ -12,8 +12,10 @@ sudo apt install isc-dhcp-server -y
 ### Configurar
 #### Abrir el fichero **dhcpd.conf** con tu editor favorito.
 
+Hay que modificar el fichero /etc/dhcp/dhcpd.conf
+
 ```linux
-sudo sudo dhcpd.conf
+sudo nano dhcpd.conf
 ```
 #### Modificar opciones nombre de dominio y nombre del servidor
 
