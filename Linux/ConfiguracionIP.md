@@ -36,7 +36,7 @@ network:
       addresses: [192.168.1.2/24]
       gateway4: 192.168.1.1
       nameservers:
-        search: [mydominio.com]
+        search: [dominio.intranet]
         addresses: [8.8.8.8, 8.8.4.4]
   version: 2
 ```
