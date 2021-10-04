@@ -14,6 +14,14 @@ setxkbmap -layou -model pc105
 
 ### Por linea de comandos
 
+#### Teclado en español
+
 ```linux
 sudo loadkeys es
+```
+
+#### Teclado EEUU
+
+```linux
+sudo loadkeys us
 ```
