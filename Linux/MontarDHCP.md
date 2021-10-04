@@ -20,12 +20,12 @@ sudo nano dhcpd.conf
 
 #### Modificar opciones nombre de dominio y nombre del servidor
 
-```jsom
+```conf
 option domain-name "dominio.intranet";
 option domain-name-servers ns1.dominio.intranet, ns2.dominio.intranet;
 ```
 
-```jsom
+```conf
 option domain-name "dominiointranet";
 option domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
