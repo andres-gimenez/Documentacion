@@ -37,6 +37,12 @@ tar $NUEVO -cf $BACKUPDIR/ID_$DSEM.tar $DIRECTORIOS
 fi
 ```
 
+Para determinar la fecha del ultimo *backup* completo se utiliza un fichero de texto con la fecha del último backup complejo. Para crear el fichero se puede utlizar el comando
+
+``` console
+echo `date +%d-%b` > /home/Backups/fecha-backup-completo
+```
+
 Cuando terminamos el *script* retocamos a nuestro gusto le damos permisos de ejecución y lo copiamos a la carpeta */usr/bin/, por ejemplo
 
 ``` console
