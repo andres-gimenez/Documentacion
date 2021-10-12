@@ -39,7 +39,7 @@ fi
 
 Cuando terminamos el *script* retocamos a nuestro gusto le damos permisos de ejecución y lo copiamos a la carpeta */usr/bin/, por ejemplo
 
-``` command
+``` console
 chmod u+x backup-script
 cp backup-script /usr/bin/
 ```
@@ -47,7 +47,7 @@ cp backup-script /usr/bin/
 Después bastará con hacer que el *script* se ejecute cada día mediant cron, por ejemplo a las 3 de la mañana,
 para que no nos moleste mientras trabajamos con el PC.
 
-``` command
+``` console
 crontab -e
 escribiremos en la tabla:
 0 3 * * * /usr/bin/backup-script
@@ -62,25 +62,25 @@ Utilizar el comando **gzip** para comprimir el resultado del empaquetamiento con
 
 Para comprimir un solo archivo, invoque el comando seguido del nombre de archivo
 
-``` command
+``` console
 gzip filename
 ```
 
 ‎Si desea conservar el archivo de entrada (original), utilice la opción ‎-k
 
-``` command
+``` console
 gzip -k filename
 ```
 
 Otra opción para mantener el archivo original es usar la opción que le dice que escriba en la salida estándar y redirija la salida a un archivo
 
-``` command
+``` console
 gzip -c filename > filename.gz
 ```
 
 Para aumentar el ratio de compresión se puede usar la opción -9
 
-``` command
+``` console
 gzip -9 filename
 ```
 
@@ -115,7 +115,7 @@ exit 0
 
 Para realizar el ftp por linea de comando se puede utilizar el comando
 
-``` Command
+``` console
 ftp -in -u ftp://username:password@servername/path/to/ localfile
 ```
 
@@ -123,7 +123,7 @@ ftp -in -u ftp://username:password@servername/path/to/ localfile
 
 Para restaurar el backup deveremos recuperar el fichero, loguearnos como *root* y, situados en el directorio raíz o punto donde queramos, restaurar el *backup* con el comando:
 
-``` command
+``` console
 cd /
 tar -xf ruta_del_backup_que_queremos_restaurar.tar
 ```
