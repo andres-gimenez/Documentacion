@@ -16,15 +16,15 @@ FECHADIR=/home/Backups
 DSEM=`date +%a` # Día de la semana (por ej. mié)
 DMES=`date +%d` # Día del mes (por ej. 06)
 DYM=`date +%d%b` # Día y mes (por ej. 06jun)
-# “NUEVO” coge la fecha del backup completo de cada domingo 
+# "NUEVO" coge la fecha del backup completo de cada domingo 
 # Backup mensual completo - sobrescribe el del mes anterior
-if [ $DMES = “01” ]; then
+if [ $DMES = "01" ]; then
 tar -cf $BACKUPDIR/CTM_$DYM.tar $DIRECTORIOS
 fi
 
 # Backup semanal completo
 # Actualiza fecha del backup completo
-if [ $DSEM = “dom” ]; then
+if [ $DSEM = "dom" ]; then
 AHORA=`date +%d-%b`
 echo $AHORA > $FECHADIR/fecha-backup-completo
 tar -cf $BACKUPDIR/CTS_$DSEM.tar $DIRECTORIOS
@@ -32,7 +32,7 @@ tar -cf $BACKUPDIR/CTS_$DSEM.tar $DIRECTORIOS
 # Backup incremental diario - sobrescribe semana anterior
 # Obtiene fecha del último backup completo, opcion newer.
 else
-NUEVO=”--newer=`cat $FECHADIR/fecha-backup-completo`”
+NUEVO="--newer=`cat $FECHADIR/fecha-backup-completo`"
 tar $NUEVO -cf $BACKUPDIR/ID_$DSEM.tar $DIRECTORIOS
 fi
 ```
