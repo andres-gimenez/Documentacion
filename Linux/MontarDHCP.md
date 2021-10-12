@@ -22,19 +22,19 @@ sudo nano dhcpd.conf
 
 #### Modificar opciones nombre de dominio y nombre del servidor
 
-```conf
+``` conf
 option domain-name "dominio.intranet";
 option domain-name-servers ns1.dominio.intranet, ns2.dominio.intranet;
 ```
 
-```conf
+``` conf
 option domain-name "dominiointranet";
 option domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
 
 #### Agregamos la configuración de subred
 
-```conf
+``` conf
 subnet 192.168.10.0 netmask 255.255.255.0 {
   range 192.168.10.100 192.168.10.200;
   option routers 192.168.10.1;
@@ -43,8 +43,7 @@ subnet 192.168.10.0 netmask 255.255.255.0 {
 
 #### Aplicamos los cambios
 
-```linux
-
+``` linux
 sudo systemctl restart isc-dhcp-server.service
 ```
 
