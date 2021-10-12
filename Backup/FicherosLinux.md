@@ -39,22 +39,15 @@ fi
 
 Cuando terminamos el *script* retocamos a nuestro gusto le damos permisos de ejecución y lo copiamos a la carpeta */usr/bin/, por ejemplo
 
-``` bash
+``` console
 chmod u+x backup-script
 cp backup-script /usr/bin/
 ```
 
-``` bat
-cd \
-copy a b
-ping 192.168.0.1
-```
-
-
 Después bastará con hacer que el *script* se ejecute cada día mediant cron, por ejemplo a las 3 de la mañana,
 para que no nos moleste mientras trabajamos con el PC.
 
-``` bash
+``` console
 crontab -e
 escribiremos en la tabla:
 0 3 * * * /usr/bin/backup-script
@@ -69,7 +62,7 @@ Utilizar el comando **gzip** para comprimir el resultado del empaquetamiento con
 
 Para comprimir un solo archivo, invoque el comando seguido del nombre de archivo
 
-``` bash
+``` console
 gzip filename
 ```
 
