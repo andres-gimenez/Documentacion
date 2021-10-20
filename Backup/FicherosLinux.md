@@ -8,7 +8,7 @@ Creamos el siguien *script* con el nombre **backup-script** el cual empaquetará
 #!/bin/bash
 # script de copia completa e incremental
 # modificar directorios a respaldar y destino del Backup
-DIRECTORIOS=”/bin /boot /etc /initrd /home /lib /opt /root /sbin /srv /usr /var”
+DIRECTORIOS="/bin /boot /etc /initrd /home /lib /opt /root /sbin /srv /usr /var"
 # Directorio donde se guarda el backup
 BACKUPDIR=/home/Backups
 # Directorio que guarda la fecha del último backup completo
