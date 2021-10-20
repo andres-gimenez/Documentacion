@@ -39,13 +39,13 @@ fi
 
 Para determinar la fecha del ultimo *backup* completo se utiliza un fichero de texto con la fecha del último backup complejo. Para crear el fichero se puede utlizar el comando
 
-``` console
+``` bash
 echo `date +%d-%b` > /home/Backups/fecha-backup-completo
 ```
 
 Cuando terminamos el *script* retocamos a nuestro gusto le damos permisos de ejecución y lo copiamos a la carpeta */usr/bin/, por ejemplo
 
-``` console
+``` bash
 chmod u+x backup-script
 cp backup-script /usr/bin/
 ```
@@ -53,7 +53,7 @@ cp backup-script /usr/bin/
 Después bastará con hacer que el *script* se ejecute cada día mediant cron, por ejemplo a las 3 de la mañana,
 para que no nos moleste mientras trabajamos con el PC.
 
-``` console
+``` bash
 crontab -e
 escribiremos en la tabla:
 0 3 * * * /usr/bin/backup-script
@@ -68,25 +68,25 @@ Utilizar el comando **gzip** para comprimir el resultado del empaquetamiento con
 
 Para comprimir un solo archivo, invoque el comando seguido del nombre de archivo
 
-``` console
+``` bash
 gzip filename
 ```
 
 ‎Si desea conservar el archivo de entrada (original), utilice la opción ‎-k
 
-``` console
+``` bash
 gzip -k filename
 ```
 
 Otra opción para mantener el archivo original es usar la opción que le dice que escriba en la salida estándar y redirija la salida a un archivo
 
-``` console
+``` bash
 gzip -c filename > filename.gz
 ```
 
 Para aumentar el ratio de compresión se puede usar la opción -9
 
-``` console
+``` bash
 gzip -9 filename
 ```
 
