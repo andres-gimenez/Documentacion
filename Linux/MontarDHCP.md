@@ -6,8 +6,8 @@ Se ha de configurar un [IP fija en el servidor](./ConfiguracionIP.md)
 
 ### Instalar software de servidor DHCP
 
-```linux
-sudo apt install isc-dhcp-server -y
+```shell
+sudo apt-get install isc-dhcp-server -y
 ```
 
 ### Configurar
@@ -16,25 +16,25 @@ sudo apt install isc-dhcp-server -y
 
 Hay que modificar el fichero /etc/dhcp/dhcpd.conf
 
-```linux
+```shell
 sudo nano dhcpd.conf
 ```
 
 #### Modificar opciones nombre de dominio y nombre del servidor
 
-```conf
+```json
 option domain-name "dominio.intranet";
 option domain-name-servers ns1.dominio.intranet, ns2.dominio.intranet;
 ```
 
-```conf
+```json
 option domain-name "dominiointranet";
 option domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
 
 #### Agregamos la configuración de subred
 
-```conf
+```json
 subnet 192.168.10.0 netmask 255.255.255.0 {
   range 192.168.10.100 192.168.10.200;
   option routers 192.168.10.1;
@@ -43,8 +43,7 @@ subnet 192.168.10.0 netmask 255.255.255.0 {
 
 #### Aplicamos los cambios
 
-```linux
-
+```shell
 sudo systemctl restart isc-dhcp-server.service
 ```
 
@@ -52,17 +51,17 @@ sudo systemctl restart isc-dhcp-server.service
 
 Arrancar, parar o reiniciar el servicio
 
-```linux
+```Shell
 sudo service isc-dhcp-server [restart|start|stop|status]
 ```
 
-```linux
+```Shell
 sudo systemctl [restart|start|stop|status] isc-dhcp-server.service
 ```
 
 #### Crear direcciones IP Fijas
 
-```linux
+```shell
 host esxi02 {
   hardware ethernet 00:0c:29:c0:a0:19;
   fixed-address 10.1.1.12;
@@ -71,7 +70,7 @@ host esxi02 {
 
 #### Comprobar lista de IP asignadas
 
-```linux
+```shell
 dhcp-lease-list
 ```
 
@@ -81,13 +80,13 @@ dhcp-lease-list
 
 #### Liberar configuración de red IP en Windows
 
-```Command
+```shell
 ipconfig /release
 ```
 
 #### Renueva configuración de red IP en Windows
 
-```Command
+```shell
 ipconfig /renew
 ```
 
@@ -95,13 +94,13 @@ ipconfig /renew
 
 #### Liberar configuración de red IP en Linux
 
-```Command
+```shell
 sudo dhclient -r
 ```
 
 #### Renueva configuración de red IP en Linux
 
-```Command
+```shell
 sudo dhclient 
 ```
 
@@ -109,7 +108,7 @@ sudo dhclient
 
 #### Listar interfaces de red
 
-```Command
+```shell
 networksetup -listallhardwareports
 ```
 
@@ -117,12 +116,12 @@ networksetup -listallhardwareports
 
 Indicando la interface de red, ejemcutamos:
 
-```Command
+```shell
 sudo ipconfig set en1 DHCP
 ```
 
 #### Visualizar estructura de red
 
-```Command
+```shell
 ipconfig getpacket en1
 ```
