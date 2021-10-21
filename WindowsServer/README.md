@@ -1,4 +1,4 @@
 # Apuntes sobre Windows Server
 
-* [Directorio activo](./DirectorioActivo/../README.md)
+* [Directorio activo](./DirectorioActivo/README.md)
 
