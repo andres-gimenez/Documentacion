@@ -22,31 +22,19 @@ sudo nano dhcpd.conf
 
 #### Modificar opciones nombre de dominio y nombre del servidor
 
-<<<<<<< HEAD
-```json
-=======
-``` conf
->>>>>>> 25c516b832dd92371d3e5011e65f1674f4c89673
+```
 option domain-name "dominio.intranet";
 option domain-name-servers ns1.dominio.intranet, ns2.dominio.intranet;
 ```
 
-<<<<<<< HEAD
-```json
-=======
-``` conf
->>>>>>> 25c516b832dd92371d3e5011e65f1674f4c89673
+```
 option domain-name "dominiointranet";
 option domain-name-servers 8.8.8.8, 8.8.4.4;
 ```
 
 #### Agregamos la configuración de subred
 
-<<<<<<< HEAD
-```json
-=======
-``` conf
->>>>>>> 25c516b832dd92371d3e5011e65f1674f4c89673
+```
 subnet 192.168.10.0 netmask 255.255.255.0 {
   range 192.168.10.100 192.168.10.200;
   option routers 192.168.10.1;
@@ -55,11 +43,7 @@ subnet 192.168.10.0 netmask 255.255.255.0 {
 
 #### Aplicamos los cambios
 
-<<<<<<< HEAD
-```shell
-=======
-``` linux
->>>>>>> 25c516b832dd92371d3e5011e65f1674f4c89673
+``` shell
 sudo systemctl restart isc-dhcp-server.service
 ```
 
@@ -67,17 +51,17 @@ sudo systemctl restart isc-dhcp-server.service
 
 Arrancar, parar o reiniciar el servicio
 
-```Shell
+``` shell
 sudo service isc-dhcp-server [restart|start|stop|status]
 ```
 
-```Shell
+``` shell
 sudo systemctl [restart|start|stop|status] isc-dhcp-server.service
 ```
 
 #### Crear direcciones IP Fijas
 
-```shell
+``` shell
 host esxi02 {
   hardware ethernet 00:0c:29:c0:a0:19;
   fixed-address 10.1.1.12;
@@ -86,7 +70,7 @@ host esxi02 {
 
 #### Comprobar lista de IP asignadas
 
-```shell
+``` shell
 dhcp-lease-list
 ```
 

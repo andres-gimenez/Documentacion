@@ -3,5 +3,5 @@
 * [Comandos](./Comandos.md)
 * [Comandos de Red](./ComandosDeRed.md)
 * [Configuracion IP](./ConfiguracionIP.md)
-* [Montar DHCP](./MontarDHCP.md)
-* [Montar DNS](./MontarDNS.md)
+* [Montar DHCP con ISC DHCP](./MontarDHCP.md)
+* [Montar DNS con bind9](./MontarDNS.md)
