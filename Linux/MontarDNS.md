@@ -97,7 +97,8 @@ ns1                       IN      A      85.36.36.36
 host1.example.com.        IN      A      10.128.100.101
 host2.example.com.        IN      A      10.128.200.102
 host3.example.com.        IN      A      10.128.200.103
-host4                     IN      CNAME  host1
+host4                     IN      CNAME  
+host1                     IN      TXT    Hola mundo
 ```
 
 Para comprobar que el fichero tiene el formato correcto
