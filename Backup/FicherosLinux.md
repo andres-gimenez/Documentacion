@@ -117,13 +117,13 @@ END_SCRIPT
 exit 0
 ```
 
-#### Para realizar un ftp por comando
+<!-- #### Para realizar un ftp por comando
 
 Para realizar el ftp por linea de comando se puede utilizar el comando
 
 ``` console
 ftp -in -u ftp://username:password@servername/path/to/ localfile
-```
+``` -->
 
 ## Restaurar el backup
 
