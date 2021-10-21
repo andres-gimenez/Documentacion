@@ -22,7 +22,8 @@ OPTIONS="-4 -u bind"
 ``` -->
 
 Configuramos la seción forwarder, con los servidores DNS
-```json
+
+```
 forwarders {
     8.8.8.8;
     8.8.4.4;
@@ -52,7 +53,8 @@ sudo nano /etc/bind/named.conf.local
 ```
 
 Y insertamos el siguiente texto.
-```json
+
+```
 zone "example.com" {
 type master;
 file "/etc/bind/db.example.com";
