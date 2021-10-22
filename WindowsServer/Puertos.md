@@ -39,6 +39,7 @@ netsh firewall set portopening TCP 2383 "Analysis Services"
 netsh firewall set portopening TCP 2382 "SQL Browser"
 
 ```
+
 ## Otros puertos
 
 ``` cmd
