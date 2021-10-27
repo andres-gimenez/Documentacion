@@ -31,6 +31,7 @@ forwarders {
 ```
 
 ### Reiniciamos el servidor para aplicar los cambios.
+
 ```shell
 sudo systemctl restart bind9
 ```
@@ -40,8 +41,26 @@ Para probar el tiempo de consulta podemos utilizar los comandos
 ```shell dig 
 dig google.com
 ```
+
 ```shell nslookup
 nslookup google.com
+```
+
+Consultar un tipo especifico de registro
+
+```shell
+C:> nslookup
+Servidor predeterminado:  UnKnown
+Address:  192.168.0.28
+> set type=TXT
+> google.es
+Servidor:  UnKnown
+Address:  192.168.0.28
+
+Respuesta no autoritativa:
+google.es       text =
+
+        "v=spf1 -all"
 ```
 
 Ahora bien, atención a los siguientes pasos. Vamos a crear un archivo donde guardaremos nuestros registros DNS:
