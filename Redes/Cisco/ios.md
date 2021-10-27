@@ -1,7 +1,8 @@
 # Cisco IOS CLI
 
+## Comandos basicos
 
-Entrar en configuración
+#### Entrar en configuración
 
 ```
 Router>enable
@@ -9,14 +10,17 @@ Router#configure terminal
 Router(config)#
 ```
 
-Cambiar nombre de host
+#### Cambiar nombre de host
 
 ```
 Router(config)#hostname R1
 R1(config)#
 ```
 
-Guardar configuración.
+#### Guardar configuración.
+
+Para guardar la configuración sin reiniciar el dispositivo, 
+se debera copiar el fichero *running-config* a *startup-config*.
 
 ```
 R1>enable
@@ -26,7 +30,20 @@ Building configuration...
 [OK]
 ```
 
-Borrar configuración
+Se puede hacer de una forma abreviada de la siguiente forma.
+
+```
+R2>enable
+R2#copy run start
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+```
+
+#### Borrar configuración
+
+Para borrar toda la configuración de un dispositivo y 
+dejarlo como su estado de fabrica utilizaremos.
 
 ```
 Router#erase startup-config
@@ -34,7 +51,10 @@ Erasing the nvram filesystem will remove all configuration files! Continue? [con
 [OK]
 ```
 
-Reiniciar
+#### Reiniciar
+
+Se puede reinicar el dispositivo con el comando **reload** y
+guardar los cambios de la sesión.
 
 ```
 Router#reload
@@ -52,7 +72,15 @@ Self decompressing the image :
 
 ```
 
-Mostrar información
+### Mostrar información
+
+El comando **show** nos muestra el estado de configuración del dispositivo.
+
+
+#### Configuración actual
+
+Para mostar la configuración que está ejecutando el dispositivo 
+debemos mostrar la configuración en el fichero *running-config*.
 
 ```
 R1#show running-config
@@ -70,7 +98,33 @@ hostname R1
 !
 ```
 
-Asignar IP a la interface
+
+#### Configuración guardada
+
+Para mostar la configuración con la que se iniciara el dispositivo 
+debemos mostrar la configuración en el fichero *startup-config*.
+
+```
+R2#show startup-config
+Using 589 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R2
+!
+!
+!
+```
+
+## Interfaces
+
+
+### Asignar una IP a un interface
+
+Para asignar IP a una interface.
 
 ```
 Router>enable
