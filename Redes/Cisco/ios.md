@@ -138,3 +138,17 @@ Router(config-if)#exit
 Router(config)#exit
 Router#
 ```
+
+
+
+## Banner
+
+Se puedo poner un mensaje para cuando se inicie el dispositivo.
+
+```
+Router>enable
+Router#configure terminal
+Router(config)#banner motd #No esta autorizado a entrar en este dispositivo.
+Router(config)#banner login #No esta autorizado a entrar en este dispositivo.
+Router#
+```
