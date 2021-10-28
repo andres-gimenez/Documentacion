@@ -139,8 +139,6 @@ Router(config)#exit
 Router#
 ```
 
-
-
 ## Banner
 
 Se puedo poner un mensaje para cuando se inicie el dispositivo.
