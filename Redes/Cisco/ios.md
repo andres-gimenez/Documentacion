@@ -83,7 +83,7 @@ Para mostar la configuración que está ejecutando el dispositivo
 debemos mostrar la configuración en el fichero *running-config*.
 
 ```
-R1#show running-config
+Router#show running-config
 Building configuration...
 
 Current configuration : 742 bytes
@@ -96,6 +96,18 @@ no service password-encryption
 hostname R1
 !
 !
+```
+
+#### Mostrar interfaces
+
+Para mostrar los interfaces del router.
+
+```
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet1/0     192.168.0.1     YES manual up                    up 
+FastEthernet4/0        192.168.11.1    YES manual up                    up 
+FastEthernet5/0        192.168.12.1    YES manual up                    up
 ```
 
 
