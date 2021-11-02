@@ -41,8 +41,8 @@ configuramos el nombre del servidor con IP fija y como DNS apuntamos al servidor
 Si utilizamos una imagen o copia de seguridad de un servidor de dominio podemos tener problemas con el SID de este.
 Para generar un nuevo SID, se puede utilizar el comando
 
-Otra herramienta para ver el SID es **PsGetsid.exe** perteneciente a las sysinternals.
-
 ``` ps
 %WINDIR%\System32\Sysprep\Sysprep /generalize /shutdown
 ```
+
+Otra herramienta para ver el SID es **PsGetsid.exe** perteneciente a las sysinternals.
