@@ -9,6 +9,7 @@ Enter configuration commands, one per line.  End with CNTL/Z.
 Router(config)#ipv6 unicast-routing
 Router(config)#interface FastEthernet0/0
 Router(config-if)#ipv6 address 2001:BD4:ABCD:1111::1/64
+Router(config-if)#ipv6 FE80::1 link-local
 Router(config-if)#no shutdown
 Router(config-if)#interface FastEthernet0/1
 Router(config-if)#ipv6 address 2001:BD4:ABCD:1112::1/64
