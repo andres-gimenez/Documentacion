@@ -13,6 +13,7 @@ Router(config-if)#ipv6 FE80::1 link-local
 Router(config-if)#no shutdown
 Router(config-if)#interface FastEthernet0/1
 Router(config-if)#ipv6 address 2001:BD4:ABCD:1112::1/64
+Router(config-if)#ipv6 FE80::1 link-local
 Router(config-if)#no shutdown
 Router(config-if)#exit
 Router(config)#exit
