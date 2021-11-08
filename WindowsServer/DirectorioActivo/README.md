@@ -16,7 +16,13 @@ Promovemos el servidor como servidor de *Directorio Activo*
 
 ![Install2](./Images/Install02.png)
 
+Podemos activarlo a traves de Power Shell de la siguiente manera
 
+``` ps
+
+Install-windowsfeature -name AD-Domain-Services -IncludeManagementTools  
+
+```
 
 ## Crear un nuevo bosque 
 
