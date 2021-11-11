@@ -39,7 +39,7 @@ Para indicar que es un certificado final.
 
 Para indicar la finalidad del certificado.
 
-- extendedKeyUsage = ver_tabla
+- extendedKeyUsage=ver_tabla
 
 ----- 
 - serverAuth             SSL/TLS Web Server Authentication.
@@ -58,7 +58,7 @@ Para indicar la finalidad del certificado.
 Firmamos el certificado con 
 
 ``` shell
-openssl x509 -CA mi_ca_publico.pem -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.cet -days 3650 -sha1 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.pem -extfile config.txt
+openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.crt -days 3650 -sha1 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
 ```
 
 - x509: Se puede usar entre otras cosas para firmar certificados
@@ -74,7 +74,7 @@ openssl x509 -CA mi_ca_publico.pem -CAkey mi_ca_privado.key -req -in mi_cert_pub
 Guardamos nuestro certificado en un fichero PKCS#12
 
 ``` shell
-openssl pkcs12 -export -in mi_cert_publico_firmador_por_mi_ca.pem -inkey mi_cert_privado.pem -out pkcs_12_cert.pfx
+openssl pkcs12 -export -in mi_cert_publico_firmador_por_mi_ca.crt -inkey mi_cert_privado.key -out pkcs_12_cert.pfx
 ```
 
 Script que hace todo el proceso
@@ -87,8 +87,8 @@ echo ---------------------
 echo introduce el nombre del certificado CA:
 read ca_name
 echo introduce el password del CA ; read CApass
-ca_name_priv=$(echo $ca_name)_priv.pem
-ca_name_pub=$(echo $ca_name)_pub.pem
+ca_name_priv=$(echo $ca_name)_priv.key
+ca_name_pub=$(echo $ca_name)_pub.crt
 openssl req -x509 -newkey rsa:2048 -passout pass:"$CApass" -keyout $ca_name_priv -out $ca_name_pub -days 365
 echo ---------------------
 echo CREANDO CLAVE PUBLICA
@@ -96,9 +96,9 @@ echo ---------------------
 echo introduce el nombre del certificado que vamos a crear:
 read cert_name
 echo introduce el password del certificado ; read CERTpass
-cert_name_priv=$(echo $cert_name)_priv.pem
+cert_name_priv=$(echo $cert_name)_priv.key
 cert_name_pub=$(echo $cert_name)_pub.pem
-cert_name_pet=$(echo $cert_name)_pet.pem
+cert_name_pet=$(echo $cert_name)_pet.crt
 echo introduce el Distinguished Name del certificado \(Ej: /DC=midominio,/DC=com,/CN=certificador\):
 read dn
 openssl req -newkey rsa:2048 -subj "$dn" -passout pass:"$CERTpass" -keyout $cert_name_priv -out $cert_name_pet
