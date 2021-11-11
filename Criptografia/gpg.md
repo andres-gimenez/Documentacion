@@ -45,6 +45,10 @@ Para poder ver las claves generadas.
 gpg --list-secret-keys
 ```
 
+``` shell
+gpg --list-keys
+```
+
 ### Borrar clave
 
 ``` shell
@@ -71,7 +75,7 @@ Podemos crear una copia de seguirdad de la clave privada.
 gpg --armor --output MiClavePrivada --export-secret-key ClaveID
 ```
 
-Para registrar la clave publica en la máquina destinararia usuamos
+Para registrar la clave publica en la máquina destinataria usuamos
 
 ``` shell
 gpg --import ClavePublica
