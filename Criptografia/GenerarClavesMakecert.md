@@ -1,6 +1,6 @@
 # Crear claves publica y privada con Macecert
 
-## Generar certificado reiz 
+## Generar certificado reiz
 
 Primero es crear un certificado, raiz como entidad certificadora. Este certeficado contien las claves publica y privada.
 
@@ -47,12 +47,13 @@ makecert -n "CN=mydominio.com,O=MiEntidad Systems,C=ES" -pe -sky exchange -m 24 
 ```
 
 Crear copia de seguridad para certificado.
+
 ``` cmd
 rem certutil -privatekey -exportpfx "MiEntidad CA Root" SSL_MiEntidad.pfx
 pvk2pfx -pvk sslMiEntidad.pvk -spc sslMiEntidad.cer -pfx sslMiEntidad.pfx
 ```
 
-## Certificados para despliegue de software 
+## Certificados para despliegue de software
 
 Para realizar despliegue de software hay que firmar los ensamblados y los manifiestos con los contenidos de las aplicaciones.
 
@@ -75,7 +76,7 @@ pvk2pfx -pvk DeploySign.pvk -spc DeploySign.cer -pfx DeploySign.pfx
 rem pvk2pfx -pvk DeveloperDeploySign.pvk -spc DeveloperDeploySign.cer -pfx DeveloperDeploySign.pfx
 ```
 
-### Crear certificado de firma de ensamblados 
+### Crear certificado de firma de ensamblados
 
 Crear un certificado para firma de ensamblados
 
@@ -150,7 +151,7 @@ openssl pkcs12 -in sslMiEntidad.pfx -clcerts -nokeys -out sslMiEntidad.crt
 openssl pkcs12 -in MiEntidad_CA_Root.pfx -clcerts -nokeys -out MiEntidad_CA_Root.crt
 ```
 
-#Ejecutar esto, editar el fichero y seleccionar las partes.
+## Ejecutar esto, editar el fichero y seleccionar las partes
 
 ``` cmd
 openssl pkcs12 -in sslMiEntidad.pfx  -out sslMiEntidad.key -nodes

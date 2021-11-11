@@ -2,27 +2,27 @@
 
 ## Comandos basicos
 
-#### Entrar en configuración
+### Entrar en configuración
 
-```
+``` cisco ios
 Router>enable
 Router#configure terminal
 Router(config)#
 ```
 
-#### Cambiar nombre de host
+### Cambiar nombre de host
 
-```
+``` cisco ios
 Router(config)#hostname R1
 R1(config)#
 ```
 
-#### Guardar configuración.
+### Guardar configuración
 
-Para guardar la configuración sin reiniciar el dispositivo, 
+Para guardar la configuración sin reiniciar el dispositivo,
 se debera copiar el fichero *running-config* a *startup-config*.
 
-```
+``` cisco ios
 R1>enable
 R1#copy running-config startup-config
 Destination filename [startup-config]? startup-config
@@ -32,7 +32,7 @@ Building configuration...
 
 Se puede hacer de una forma abreviada de la siguiente forma.
 
-```
+``` cisco ios
 R2>enable
 R2#copy run start
 Destination filename [startup-config]? 
@@ -40,23 +40,23 @@ Building configuration...
 [OK]
 ```
 
-#### Borrar configuración
+### Borrar configuración
 
-Para borrar toda la configuración de un dispositivo y 
+Para borrar toda la configuración de un dispositivo y
 dejarlo como su estado de fabrica utilizaremos.
 
-```
+``` cisco ios
 Router#erase startup-config
 Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]
 [OK]
 ```
 
-#### Reiniciar
+### Reiniciar
 
 Se puede reinicar el dispositivo con el comando **reload** y
 guardar los cambios de la sesión.
 
-```
+``` cisco ios
 Router#reload
 Proceed with reload? [confirm]ySystem Bootstrap, Version 12.1(3r)T2, RELEASE SOFTWARE (fc1)
 Copyright (c) 2000 by cisco Systems, Inc.
@@ -69,20 +69,18 @@ Readonly ROMMON initialized
 
 Self decompressing the image :
 ########################################################################## [OK]
-
 ```
 
 ### Mostrar información
 
 El comando **show** nos muestra el estado de configuración del dispositivo.
 
-
 #### Configuración actual
 
-Para mostar la configuración que está ejecutando el dispositivo 
+Para mostar la configuración que está ejecutando el dispositivo
 debemos mostrar la configuración en el fichero *running-config*.
 
-```
+``` cisco ios
 Router#show running-config
 Building configuration...
 
@@ -102,7 +100,7 @@ hostname R1
 
 Para mostrar los interfaces del router.
 
-```
+``` cisco ios
 Router#show ip interface brief
 Interface              IP-Address      OK? Method Status                Protocol 
 GigabitEthernet1/0     192.168.0.1     YES manual up                    up 
@@ -110,13 +108,12 @@ FastEthernet4/0        192.168.11.1    YES manual up                    up
 FastEthernet5/0        192.168.12.1    YES manual up                    up
 ```
 
-
 #### Configuración guardada
 
-Para mostar la configuración con la que se iniciara el dispositivo 
+Para mostar la configuración con la que se iniciara el dispositivo
 debemos mostrar la configuración en el fichero *startup-config*.
 
-```
+``` cisco ios
 R2#show startup-config
 Using 589 bytes
 !
@@ -133,12 +130,11 @@ hostname R2
 
 ## Interfaces
 
-
 ### Asignar una IP a un interface
 
 Para asignar IP a una interface.
 
-```
+``` cisco ios
 Router>enable
 Router#configure terminal
 Router(config)#interface ethernet 0/0
@@ -155,7 +151,7 @@ Router#
 
 Se puedo poner un mensaje para cuando se inicie el dispositivo.
 
-```
+``` cisco ios
 Router>enable
 Router#configure terminal
 Router(config)#banner motd #No esta autorizado a entrar en este dispositivo.

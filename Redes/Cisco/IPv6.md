@@ -2,7 +2,7 @@
 
 Para configurar un router con IPV6
 
-```
+``` cisco
 Router>en
 Router#config te
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -24,7 +24,7 @@ Router#
 
 Para ver la configuración del router
 
-    
+``` cisco
 Router>en
 Router#config te
 Router#show ipv6 interface brief
@@ -40,7 +40,7 @@ Vlan1                      [administratively down/down]
 
 Para ver la configuración de un interface
 
-```
+``` cisco
 Router#show ipv6 interface fa0/1
 FastEthernet0/1 is up, line protocol is up
   IPv6 is enabled, link-local address is FE80::207:ECFF:FEA7:6702
@@ -68,7 +68,7 @@ FastEthernet0/1 is up, line protocol is up
 
 Para ver la configuración de enrutamiento
 
-```
+``` cisco
 Router#show ipv6 route
 IPv6 Routing Table - 5 entries
 Codes: C - Connected, L - Local, S - Static, R - RIP, B - BGP
