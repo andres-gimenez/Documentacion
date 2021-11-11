@@ -5,7 +5,7 @@ https://www.genbeta.com/desarrollo/manual-de-gpg-cifra-y-envia-datos-de-forma-se
 
 ## Cifrado simetrico con gpg
 
-Creamo un fichero y lo encriptamos con clave simetrica. 
+Creamo un fichero y lo encriptamos con clave simetrica.
 Tras ejecutar gpg nos saldrá un cuadro que nos pedirá una contraseña.
 
 ``` shell
@@ -91,7 +91,7 @@ Para venviar una clave de revocación a un servidor.
 gpg --keyserver pgp.rediris.es --send-keys ClaveID
 ```
 
-### Cifrar un fichero 
+### Cifrar un fichero
 
 Para encriptar un fichero con nuestra clave publica
 
@@ -115,7 +115,7 @@ Para firma un fichero con la clave privada
 gpg -u ClaveID --output firmar.txt.gpg --sign firmar.txt 
 ```
 
-Para verificar un fichero con la clave publica 
+Para verificar un fichero con la clave publica
 
 ``` shell
 gpg --verify firma.txt.gpg
