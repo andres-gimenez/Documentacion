@@ -40,7 +40,7 @@ Para crear un certificado para nuestra página Web, primero hay que crear una pe
 Creamos una petición de certificado digital, debemos indicar cual es el dominio del portal Web al que va dirigido el certificado.
 
 ``` shell
-openssl req -newkey rsa:2048 -subj "/DC=midominio.com/OU=com/CN=micertificado" -keyout mi_cert_privado.key -out mi_cert_publico_peticion.crt
+openssl req -newkey rsa:2048 -subj "/DC=midominio/OU=com/CN=www.midominio.com" -keyout mi_cert_privado.key -out mi_cert_publico_peticion.crt
 ```
 
 - subj: Establece el asunto del certificado
@@ -56,10 +56,12 @@ Para indicar que es un certificado final y para autentificador de servidor.
 - basicConstraints=critical,CA:FALSE
 - extendedKeyUsage=serverAuth
 
-Firmamos el certificado con 
+Firmamos el certificado con el certificado de la entidad emisora de certificados
 
 ``` shell
-openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.crt -days 3650 -sha1 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
+openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req 
+-in mi_cert_publico_peticion.crt -days 3650 -sha1 -CAcreateserial 
+-out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
 ```
 
 - x509: Se puede usar entre otras cosas para firmar certificados
@@ -71,7 +73,6 @@ openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_pub
 - CAcreateserial: Añade un número de serie a los certificados firmados con nuestra CA
 - out: Certificado de salida (lo que queremos)
 - extfile: Fichero con parámetros de configuración
-
 
 ### Exportamos el certificado 
 
