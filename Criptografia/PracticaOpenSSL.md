@@ -37,7 +37,7 @@ Para crear un certificado para nuestra página Web, primero hay que crear una pe
 
 ### Creación de petición de certificado
 
-Creamos una petición de certificado digital
+Creamos una petición de certificado digital, debemos indicar cual es el dominio del portal Web al que va dirigido el certificado.
 
 ``` shell
 openssl req -newkey rsa:2048 -subj "/DC=midominio.com/OU=com/CN=micertificado" -keyout mi_cert_privado.key -out mi_cert_publico_peticion.crt
