@@ -1,4 +1,4 @@
-# Practica criptografia con GPG
+# Práctica criptografia con GPG
 
 GNU Privacy Guard (GnyPG o GPG) es una herramienta de cifrado y firma digital, está desarrollada como software libre con licencia GPL.
 
