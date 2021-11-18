@@ -55,7 +55,7 @@ Para indicar la finalidad del certificado.
 - nsSGC                  Netscape Server Gated Crypto
 -----
 
-Firmamos el certificado con 
+Firmamos el certificado con
 
 ``` shell
 openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.crt -days 3650 -sha1 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
