@@ -4,7 +4,7 @@
 
 Para enrutar dentro de un router, hay que especificar la IP de la red, la mascara y el destino.
 
-``` 
+``` cisco ios
 Router>enable
 Router#configure terminal
 Reouter(config)# ip route 13.0.0.0 255.0.0.0 12.0.0.2
@@ -12,7 +12,7 @@ Reouter(config)# ip route 13.0.0.0 255.0.0.0 12.0.0.2
 
 Para poder ver las rutas que tiene 
 
-``` 
+``` cisco ios
 Router#show ip route 
 Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
        D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
@@ -35,7 +35,7 @@ S    192.168.200.0/24 [1/0] via 192.168.21.1
 Se utiliza el comando Router rip para realizar enrutamiento dinamico y
 especificamos todas las redes que queremos unir.
 
-``` 
+``` cisco ios
 Router(config)#router rip
 Router(config-router)#version 2
 Router(config-router)#no auto-summary

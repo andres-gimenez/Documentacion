@@ -1,0 +1,15 @@
+# Snort - Sistema de detección de intrusos
+
+**Snort** es un IDS o Sistema de detección de intrusiones basado en red (NIDS). Implementa un motor de detección de ataques y barrido de puertos que permite registrar, alertar y responder ante cualquier anomalía previamente definida como patrones que corresponden a ataques, barridos, intentos aprovechar alguna vulnerabilidad, análisis de protocolos, etc., conocidos. Todo esto en tiempo real.
+
+**Snort** (http://www.snort.org/) está disponible bajo licencia GPL, gratuito y funciona bajo plataformas Windows y GNU/Linux. Es uno de los más usados y dispone de una gran cantidad de filtros o patrones ya predefinidos, así como actualizaciones constantes ante casos de ataques, barridos o vulnerabilidades que vayan siendo detectadas a través de los distintos boletines de seguridad.
+
+Puede funcionar como sniffer (podemos ver en consola y en tiempo real qué ocurre en nuestra red, todo nuestro tráfico), registro de paquetes (permite guardar en un archivo los logs para su posterior análisis, un análisis offline) o como un IDS normal (en este caso NIDS).
+
+1. En primer lugar **instalaremos** la aplicación bajo GNU/Linux mediante: aptitude install snort.
+2. Snort en modoSniffer y registro de paquetes: snort –dev -l ./log -h 192.168.1.0/24.En este modo (dev) visualizaremos las cabeceras de los paquetes TCP/IP, es decir, en modo snifferSniffer: modo verbouse (v) mostrará las cabeceras IP, TCP, UDP y ICMP, visualizará los campos de datos que pasan por la interface de red (d), y las cabeceras a nivel de enlace (e). Las opciones siguientes –l sirve para indicar el directorio de logs y –h para almacenar registros de tráfico de la red o host que se le indique.
+3. **Filtros**: Para para monitorizar tan sólo solo el tráfico deseado de un determinado puerto, se puede indicar por ejemplo: snort -vd host 192.168.1.5 and dst port 8080. En el cual solo se mostrará el tráfico del host 192.168.1.5 con puerto de destino 8080.
+4. **IDS**: El el modo detección de intrusos de red se activa añadiendo a la línea de comandos de snort la opción -c snort.conf. En este archivo, snort.conf, se guarda toda la configuración de las reglas, preprocesadores y otras configuraciones necesarias para el funcionamiento en modo NIDS. Por tanto podemos ejecutar: snort -dev -l ./log -h 192.168.1.0/24 -c ../etc/snort.conf.
+5. **Modos de alerta:** Hay hay varias maneras de configurar la salida de las alertas, el modo en que se almacenarán éstas en el archivo alert.ids. Snort dispone de siete modos de alertas en la línea de órdenes: completo, rápido, socket, syslog, smb (WinPopup), consola y ninguno. 
+
+Como ejemplo, en modo de alerta completa (-A Full) nos devolverá información sobre: tiempo, mensaje de la alerta, clasificación, prioridad de la alerta, IP y puerto de origen/destino e información completa de las cabeceras de los paquetes registrados. snort -A full -dev -l ./log -h 192.168.1.0/24 -c ../etc/snort.conf

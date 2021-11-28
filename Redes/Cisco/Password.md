@@ -12,6 +12,8 @@ Router(config-line)#login
 Router(config-line)#exit
 ```
 
+# 
+
 ## Habilitar consola virtual
 
 Para poder entrar a traves de una consola virtual via telnet. 

@@ -147,6 +147,28 @@ Router(config)#exit
 Router#
 ```
 
+### Dar un nombre a la interface
+
+``` cisco ios
+Router>enable
+Router#configure terminal
+Router(config)#interface ethernet 0/0
+Router(config)#description link to LAN
+Router(config-if)#exit
+Router(config)#exit
+Router#
+```
+
+### Ver el estado operativo de una interface
+
+``` cisco ios
+Router>enable
+Router#show interface ethernet0/0
+Router#
+```
+
+
+
 ## Banner
 
 Se puedo poner un mensaje para cuando se inicie el dispositivo.
@@ -158,3 +180,26 @@ Router(config)#banner motd #No esta autorizado a entrar en este dispositivo.
 Router(config)#banner login #No esta autorizado a entrar en este dispositivo.
 Router#
 ```
+
+## Inhabilitar la búsqueda DNS 
+
+Inhabilitar la búsqueda DNS para evitar que el router intente traducir los comandos 
+mal introducidos como si fueran nombres de host.
+
+``` cisco ios
+Router>enable
+Router#configure terminal
+Router(config)#no ip domain lookup
+Router#
+```
+
+### Poner en hora
+
+Para poner en hora el dispositivo utilizamos el comando ***clock***
+
+``` cisco ios
+Router>enable
+Router#clock set clock set 20:19:20 october 23 2021
+Router#
+```
+
