@@ -10,6 +10,20 @@ Router#configure terminal
 Router(config)#
 ```
 
+### Mostrar version
+
+Muestra información del dispositivo.
+
+``` cisco ios
+Router>enable
+Router#show tech-support
+```
+
+Muestra información del dispositivo. Funciona tanto en modo usuario como modo privilegiado.
+``` cisco ios
+Router>version
+```
+
 ### Cambiar nombre de host
 
 ``` cisco ios
@@ -166,8 +180,6 @@ Router>enable
 Router#show interface ethernet0/0
 Router#
 ```
-
-
 
 ## Banner
 
