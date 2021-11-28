@@ -28,7 +28,7 @@ gpg -symmetric texto.txt
 
 Nos pedirá una frase que utiliza para cifrar nuestro texto,
 recuerda que cuanto más larga sea la frase, más segura será la encriptación.
-Y tendremos el fichero texto.txt.gpg con el contenido cifrado, 
+Y tendremos el fichero texto.txt.gpg con el contenido cifrado,
 el cual debemos hacer llegar al destinatario.
 
 ### Descifrar de un fichero con clave simétrica

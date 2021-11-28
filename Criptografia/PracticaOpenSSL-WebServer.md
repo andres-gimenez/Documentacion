@@ -1,10 +1,10 @@
-# Practica criptografia con OpenSSL
+# Practica criptografia con OpenSSL (Servidor Web)
 
 OpenSSL es un proyecto de software libre basado en SSLeay, desarrollado por Eric Young y Tim Hudson.
-Consiste en un robusto paquete de herramientas de administración y bibliotecas relacionadas con la criptografía, 
+Consiste en un robusto paquete de herramientas de administración y bibliotecas relacionadas con la criptografía,
 que suministran funciones criptográficas a otros paquetes como OpenSSH y navegadores web (para acceso seguro a sitios HTTPS).
 
-## Crear un certificado de entidad certificadora (CA).
+## Crear un certificado de entidad certificadora (CA)
 
 Primero debemos crear un certificado de entidad certificadora para poder firmar nuestros certificados.
 
@@ -74,7 +74,7 @@ openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req
 - out: Certificado de salida (lo que queremos)
 - extfile: Fichero con parámetros de configuración
 
-### Exportamos el certificado 
+### Exportamos el certificado
 
 Exportamos nuestro certificado a un fichero PKCS#12
 
