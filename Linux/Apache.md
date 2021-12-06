@@ -45,6 +45,12 @@ test-web-eus-vm1 systemd[1]: Started The Apache HTTP Server.
 
 Es necesario realizar un paso más para poder interactuar con el servidor web. La red virtual está bloqueando la solicitud entrante. Esto se puede cambiar mediante la configuración. A continuación veremos cómo permitir la solicitud de entrada. -->
 
+Habilitamos el inicio despues del arranque:
+
+``` bash
+sudo systemctl is-enabled apache2
+```
+
 ## Ajuste del cortafuegos
 
 Es necesario ajustar el firewall para permitir el acceso externo a los puertos web predetermnados.
@@ -205,7 +211,7 @@ $ sudo nano /etc/apache2/sites-available/tu_domain.conf
 Péguelo en el siguiente bloque de configuración, similar al predeterminado, pero actualizado para nuestro nuevo directorio y nombre de dominio:
 
 ``` xml
-<VirtualHost *:80>
+<VirtualHost mi_dominio ó IP ó *:80>
     ServerAdmin webmaster@localhost
     ServerName tu_domain
     ServerAlias www.tu_domain
@@ -239,6 +245,12 @@ Reinicie Apache para implementar sus cambios:
 $ sudo systemctl restart apache2
 ``` 
 
+Para arrancar apache2 en el arranque de Linux, podemos ejecutar:
+
+``` shell
+$ sudo systemctl is-enabled apache2
+``` 
+
 ## Ficheros importantes de Apache
 
 Ahora que sabe administrar el propio servicio de Apache, debe tomarse unos minutos para familiarizarse con algunos directorios y archivos importantes.
@@ -261,3 +273,26 @@ Ahora que sabe administrar el propio servicio de Apache, debe tomarse unos minut
 
 * /var/log/apache2/access.log: por defecto, cada solicitud enviada a su servidor web se asienta en este archivo de registro a menos que Apache esté configurado para no hacerlo.
 * /var/log/apache2/error.log: por defecto, todos los errores se registran en este archivo. La directiva LogLevel de la configuración de Apache especifica el nivel de detalle de los registros de error.
+
+
+## Certificados de seguridad
+
+Podemos crear un certificado de pruebas con openssl de la siguiente forma. 
+
+``` shell
+openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key midominio.key -out midominio.crt
+```
+
+Para configurar el site en apache debemos modificar el fichero de configuración del sitio con el siguiente texto:
+
+``` xml
+<VirtualHost mi_dominio ó IP ó *:443>
+DocumentRoot /var/www/html2
+ServerName su.dominio.com
+SSLEngine on
+SSLCertificateFile /ruta/a/su_dominio.crt
+SSLCertificateKeyFile /ruta/a/su_dominio.key
+SSLCertificateChainFile /ruta/a/DigiCertCA.crt
+</VirtualHost>
+```
+
