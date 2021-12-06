@@ -19,10 +19,10 @@ Router>enable
 Router#show tech-support
 ```
 
-Muestra información del dispositivo. Funciona tanto en modo usuario como modo privilegiado.
+<!-- Muestra información del dispositivo. Funciona tanto en modo usuario como modo privilegiado.
 ``` cisco ios
 Router>version
-```
+``` -->
 
 ### Cambiar nombre de host
 
