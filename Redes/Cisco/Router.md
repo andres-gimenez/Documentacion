@@ -40,7 +40,7 @@ Router(config)#router rip
 Router(config-router)#version 2
 Router(config-router)#no auto-summary
 Router(config-router)#network 192.168.1.0
-Router(config-router)#network 162.16.0.0
+Router(config-router)#network 162.168.0.0
 Router(config-router)#network 192.168.2.0
 Router(config-router)#exit
 Router(config)#
