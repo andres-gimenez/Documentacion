@@ -28,9 +28,9 @@ Añadir el repositorio de Docker al las fuentes de APT.
 $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 ```
 
-‎Esto también actualizará nuestra base de datos de paquetes con los paquetes Docker del repositorio recién agregado.‎
+Esto también actualizará nuestra base de datos de paquetes con los paquetes Docker del repositorio recién agregado.
 
-‎Asegúrese de que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu:‎
+Asegúrese de que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu:
 
 ``` shell
 $ apt-cache policy docker-ce
