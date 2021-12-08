@@ -116,7 +116,7 @@ openssl pkcs12 -export -in $cert_name_pub -passin pass:"$CERTpass" -inkey $cert_
 
 ``` shell
 openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=localhost" -key localhost.key -out localhost.crt
-```
+``` 
 
 ## Cambio de formatos de cirtifiado
 

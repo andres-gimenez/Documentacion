@@ -175,7 +175,8 @@ A continuación, asigne la propiedad del directorio con la variable de entorno $
 $ sudo chown -R $USER:$USER /var/www/your_domain
 ``` 
 
-Los permisos de los roots web deberían ser correctos si no modificó el valor umask, que establece permisos de archivos predeterminados. Para asegurarse de que sus permisos sean correctos y permitir al propietario leer, escribir y ejecutar los archivos, y a la vez conceder solo permisos de lectura y ejecución a los grupos y terceros, puede ingresar el siguiente comando:
+Los permisos de los roots web deberían ser correctos si no modificó el valor umask, que establece permisos de archivos predeterminados.
+Para asegurarse de que sus permisos sean correctos y permitir al propietario leer, escribir y ejecutar los archivos, y a la vez conceder solo permisos de lectura y ejecución a los grupos y terceros, puede ingresar el siguiente comando:
 
 ``` shell
 $ sudo chmod -R 755 /var/www/your_domain
@@ -280,12 +281,18 @@ Ahora que sabe administrar el propio servicio de Apache, debe tomarse unos minut
 Podemos crear un certificado de pruebas con openssl de la siguiente forma. 
 
 ``` shell
-openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key midominio.key -out midominio.crt
+$ openssl genrsa -des3 -out server.key 1024
+$ openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key server.key -out midominio.crt
 ```
 
 Para configurar el site en apache debemos modificar el fichero de configuración del sitio con el siguiente texto:
 
 ``` xml
+<VirtualHost mi_dominio ó IP ó *:80>
+...
+Redirect permanent "/" "https://mi_dominio ó IP/"
+...
+</VirtualHost>
 <VirtualHost mi_dominio ó IP ó *:443>
 DocumentRoot /var/www/html2
 ServerName su.dominio.com

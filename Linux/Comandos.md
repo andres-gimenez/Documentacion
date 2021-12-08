@@ -4,11 +4,11 @@
 
 ### Instalar x11-xkb-utils
 
-```linux
+``` shell
 sudo apt install x11-xkb-utils
 ```
 
-```linux
+``` shell
 setxkbmap -layou -model pc105
 ```
 
@@ -16,12 +16,37 @@ setxkbmap -layou -model pc105
 
 #### Teclado en español
 
-```linux
+``` shell
 sudo loadkeys es
 ```
 
 #### Teclado EEUU
 
-```linux
+``` shell
 sudo loadkeys us
 ```
+
+#### Nombre del Host
+
+Nombre del host
+
+``` shell
+hostname
+```
+
+``` shell
+hostname
+```
+
+Ip del Host
+
+``` shell
+uname -a
+```
+
+Cambiar nombre del host
+
+``` shell
+sudo hostname nuevo_host_name
+```
+

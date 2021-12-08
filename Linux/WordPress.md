@@ -13,11 +13,17 @@ Instalamos servidor [Apache](Apache.md).
 
 Instalamos servidor [MariaDB](MariaDB.md).
 
-## Instalamos modulo PHP para Apache y MySQL.
+## Instalamos los modulos necesarios de PHP para Apache, Nginx y MySQL.
 
 ``` shell
 sudo apt install php libapache2-mod-php php-mysql
 ```
+
+<!-- Se pueden instalar todos los componentes de php
+
+``` shell
+sudo apt install php-dom php-simplexml php-ssh2 php-xml php-xmlreader php-curl php-exif php-ftp php-gd php-iconv php-imagick php-json php-mbstring php-posix php-sockets php-tokenizer
+``` -->
 
 ## Descargamos WordPress
 
