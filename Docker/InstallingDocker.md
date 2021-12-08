@@ -6,7 +6,7 @@ Como instalar Docker en un Ubuntu 20.04
 
 Actualizar packers
 
-``` shell
+``` shel
 $ sudo apt update
 ```
 
