@@ -23,8 +23,8 @@ network:
   version: 2
 ```
 
-* Servicios (renderer): Network-Manager (Gestión grafica)
-* Systemd-netwrokd Se configura con networkd de por comandos.
+- Servicios (renderer): Network-Manager (Gestión grafica)
+- Systemd-netwrokd Se configura con networkd de por comandos.
 
 ### Ejemplo de IP Fija
 
@@ -41,26 +41,39 @@ network:
   version: 2
 ```
 
-#### Para ver el nombre del adaptador:
+#### Para ver el nombre del adaptador
 
-```linux
+```shell
 ip address show
 ```
 
-#### Actualizar sin aplicarlos los cambios.
+#### Actualizar sin aplicarlos los cambios
 
-```linux
+```shell
 netplan generate
 ```
 
-#### Actualizar configuración, revisando la sintaxis:
+#### Actualizar configuración, revisando la sintaxis
 
-```linux
+```shell
 netplan apply
 ```
 
 #### Para listar información
 
-```linux
+```shell
 systemd-resolve --status
+```
+
+## Hardware
+
+La configuración de los interfaces de red la podemos ver en la carpeta
+*/sys/class/net*
+
+Verificar que las interfaces de red funcionan correctamente
+
+```shell
+thtool lo |grep "Link detected"
+ethtool eth0 |grep "Link detected"
+ethtool eth1 |grep "Link detected"
 ```
