@@ -73,7 +73,7 @@ La configuración de los interfaces de red la podemos ver en la carpeta
 Verificar que las interfaces de red funcionan correctamente
 
 ```shell
-thtool lo |grep "Link detected"
+ethtool lo |grep "Link detected"
 ethtool eth0 |grep "Link detected"
 ethtool eth1 |grep "Link detected"
 ```
