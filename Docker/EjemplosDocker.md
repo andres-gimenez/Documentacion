@@ -31,3 +31,17 @@ Descargamos la imagen y la ejecutamos ocn el certificado creado.
 docker pull mcr.microsoft.com/dotnet/samples:aspnetapp
 docker run --rm -it -p 8000:80 -p 8001:443 -e ASPNETCORE_URLS="https://+;http://+" -e ASPNETCORE_HTTPS_PORT=8001 -e ASPNETCORE_Kestrel__Certificates__Default__Password="crypticpassword" -e ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx -v C:\Apl\Certificados:/https/ mcr.microsoft.com/dotnet/samples:aspnetapp
 ```
+
+## Entrar en máquina docker
+
+``` ps
+docker exec -it <container> bash 
+```
+
+``` ps
+docker exec -it <container> /bin/bash 
+```
+
+``` ps
+docker exec -it <container> ls 
+```
