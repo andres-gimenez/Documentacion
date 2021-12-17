@@ -1,6 +1,6 @@
 # OpenSSL
 
-## Crear un certificado de entidad certificadora (CA).
+## Crear un certificado de entidad certificadora (CA)
 
 ``` shell
 openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout mi_ca_privado.key -out mi_ca_publico.crt -days 3650
@@ -35,13 +35,15 @@ openssl req -newkey rsa:2048 -subj "/DC=midominio.com/OU=com/CN=micertificado" -
 Creamos un fichero (por ejemplo config.txt) con las lineas:
 
 Para indicar que es un certificado final.
+
 - basicConstraints=critical,CA:FALSE
 
 Para indicar la finalidad del certificado.
 
 - extendedKeyUsage=ver_tabla
 
------ 
+-----
+
 - serverAuth             SSL/TLS Web Server Authentication.
 - clientAuth             SSL/TLS Web Client Authentication.
 - codeSigning            Code signing.
@@ -53,6 +55,7 @@ Para indicar la finalidad del certificado.
 - msSGC                  Microsoft Server Gated Crypto
 - msEFS                  Microsoft Encrypted File System
 - nsSGC                  Netscape Server Gated Crypto
+
 -----
 
 Firmamos el certificado con
@@ -116,7 +119,7 @@ openssl pkcs12 -export -in $cert_name_pub -passin pass:"$CERTpass" -inkey $cert_
 
 ``` shell
 openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=localhost" -key localhost.key -out localhost.crt
-``` 
+```
 
 ## Cambio de formatos de cirtifiado
 

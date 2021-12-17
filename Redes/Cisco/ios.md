@@ -193,9 +193,9 @@ Router(config)#banner login #No esta autorizado a entrar en este dispositivo.
 Router#
 ```
 
-## Inhabilitar la búsqueda DNS 
+## Inhabilitar la búsqueda DNS
 
-Inhabilitar la búsqueda DNS para evitar que el router intente traducir los comandos 
+Inhabilitar la búsqueda DNS para evitar que el router intente traducir los comandos
 mal introducidos como si fueran nombres de host.
 
 ``` cisco ios
@@ -214,4 +214,3 @@ Router>enable
 Router#clock set clock set 20:19:20 october 23 2021
 Router#
 ```
-
