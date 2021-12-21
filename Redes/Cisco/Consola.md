@@ -1,4 +1,4 @@
-# Configuración acceso 
+# Configuración acceso
 
 Configuración de acceso a un dispositivo.
 
@@ -15,7 +15,7 @@ Switch(config-line)#password cisco
 Switch(config-line)#login
 Switch(config-line)#end
 Switch#
-``` 
+```
 
 ## Configuración de acceso via telnet
 
