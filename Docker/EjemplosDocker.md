@@ -45,3 +45,15 @@ docker exec -it <container> /bin/bash
 ``` ps
 docker exec -it <container> ls 
 ```
+
+``` ps
+docker run -it --entrypoint /bin/bash [docker_image]
+
+
+Ejecutar un comando en un docker parado.
+
+``` ps
+docker commit <container> temp
+docker run -it --rm temp <your commands>
+docker rmi temp
+```
