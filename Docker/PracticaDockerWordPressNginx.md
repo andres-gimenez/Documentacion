@@ -2,10 +2,10 @@
 
 Instalación de WordPress con Docker compose
 
-## Requisitos
+<!-- ## Requisitos
 
 - Docker instalado en un Ubuntu Server 2021.
-- mkcert para crear certificados SSL.
+- mkcert para crear certificados SSL. 
 
 ### Instalar mkcert
 
@@ -20,7 +20,7 @@ Y ahora instalamos `mkcert`.
 
 ``` shell
 brew install mkcert
-```
+```-->
 
 ## Recomendaciones
 

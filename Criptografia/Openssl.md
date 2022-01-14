@@ -137,7 +137,7 @@ openssl x509 -inform der -in localhost.cer -out localhost.pem
 openssl x509 -outform der -in localhost.pem -out localhost.der
 ```
 
-### onvertir un certificado en formato PEM y una clave privada a PKCS#12 (.pfx .p12)
+### Convertir un certificado en formato PEM y una clave privada a PKCS#12 (.pfx .p12)
 
 ``` shell
 openssl pkcs12 -export -out localhost.p12 -inkey localhost.key -in localhost.crt
