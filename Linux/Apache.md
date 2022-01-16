@@ -22,7 +22,7 @@ $ sudo systemctl status apache2 --no-pager
 
 El comando systemctl devuelve algo parecido a la salida siguiente.
 
-```
+``` text
 apache2.service - The Apache HTTP Server
    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
   Drop-In: /lib/systemd/system/apache2.service.d
