@@ -249,8 +249,8 @@ $ sudo systemctl restart apache2
 Para arrancar apache2 en el arranque de Linux, podemos ejecutar:
 
 ``` shell
-$ sudo systemctl is-enabled apache2
-``` 
+sudo systemctl is-enabled apache2
+```
 
 ## Ficheros importantes de Apache
 
@@ -270,19 +270,24 @@ Ahora que sabe administrar el propio servicio de Apache, debe tomarse unos minut
 * **/etc/apache2/conf-available/ y /etc/apache2/conf-enabled/**: estos directorios tienen la misma relación que los directorios sites-available y sites-enabled, pero se utilizan para almacenar fragmentos de configuración que no pertenecen a un host virtual. Los archivos del directorio conf-available pueden habilitarse con el comando a2enconf y deshabilitarse con el comando a2disconf.
 * **/etc/apache2/mods-available/ y /etc/apache2/mods-enabled/**: estos directorios contienen los módulos disponibles y habilitados, respectivamente. Los archivos que terminan en .load contienen fragmentos para cargar módulos específicos, mientras que los archivos que terminan en .conf contienen la configuración para esos módulos. Los módulos pueden habilitarse y deshabilitarse con los comandos a2enmod y a2dismod.
 
-###  Registros del servidor
+### Registros del servidor
 
 * /var/log/apache2/access.log: por defecto, cada solicitud enviada a su servidor web se asienta en este archivo de registro a menos que Apache esté configurado para no hacerlo.
 * /var/log/apache2/error.log: por defecto, todos los errores se registran en este archivo. La directiva LogLevel de la configuración de Apache especifica el nivel de detalle de los registros de error.
-
 
 ## Certificados de seguridad
 
 Podemos crear un certificado de pruebas con openssl de la siguiente forma. 
 
 ``` shell
-$ openssl genrsa -des3 -out server.key 1024
-$ openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key server.key -out midominio.crt
+openssl genrsa -des3 -out server.key 1024
+openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key server.key -out midominio.crt
+```
+
+Para utilizar ssl en Apache hay que activar el modulo ssl. Se puede hacer con el siguiente comando.
+
+``` shell
+sudo a2enmod ssl 
 ```
 
 Para configurar el site en apache debemos modificar el fichero de configuración del sitio con el siguiente texto:
