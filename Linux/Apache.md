@@ -284,6 +284,12 @@ openssl genrsa -des3 -out server.key 1024
 openssl req -new -x509 -days 1825 -subj "/C=ES/ST=Spain/L=/O=/CN=midominio" -key server.key -out midominio.crt
 ```
 
+Para utilizar ssl en Apache hay que activar el modulo ssl. Se puede hacer con el siguiente comando.
+
+``` shell
+sudo a2enmod ssl 
+```
+
 Para configurar el site en apache debemos modificar el fichero de configuración del sitio con el siguiente texto:
 
 ``` xml
