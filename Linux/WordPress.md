@@ -1,6 +1,6 @@
-# Instalar Word press en Ubuntu server.
+# Instalar Word press en Ubuntu server
 
-Manual de instalación de WordPress sobre Ubuntu server 20.04LTS. 
+Manual de instalación de WordPress sobre Ubuntu server 20.04LTS.
 WordPress esta basado en PHP y MySQL.
 
 Para instalr PHP utilamos Apache o NGinx
@@ -13,7 +13,7 @@ Instalamos servidor [Apache](Apache.md).
 
 Instalamos servidor [MariaDB](MariaDB.md).
 
-## Instalamos los modulos necesarios de PHP para Apache, Nginx y MySQL.
+## Instalamos los modulos necesarios de PHP para Apache y MySQL
 
 ``` shell
 sudo apt install php libapache2-mod-php php-mysql
@@ -52,9 +52,8 @@ Para configurar la base de datos MariaDB.
 Iniciamos sesión en MariaDB con el siguiente comando y debemos ingresar la contraseña que hemos definido anteriormente:
 Luego creamos la base de datos, el usuario y la contraseña a usar en el inicio de sesión de WordPress:
 
-
 ``` shell
-$ sudo mysql -u root -p
+sudo mysql -u root -p
 CREATE DATABASE databasename;
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON databasename.* TO 'usuario'@'localhost';
@@ -83,14 +82,14 @@ show databases;
 Vamos a la a la raíz de documentos del sitio web y allí vamos a crear un archivo wp-config.php tomando como origen el archivo de configuración de la siguiente manera:
 
 ``` shell
-$ cd /var/www/mi_dominio
-$ sudo cp wp-config-sample.php wp-config.php
+cd /var/www/mi_dominio
+sudo cp wp-config-sample.php wp-config.php
 ```
 
 Editamos el nuevo fichero de configuración
 
 ``` shell
-$ sudo nano wp-config.php
+sudo nano wp-config.php
 ```
 
 Devemos modificar los campos:
@@ -102,7 +101,7 @@ Devemos modificar los campos:
 Para obtener valores seguros del generador de claves secretas de WordPress, escriba lo siguiente:
 
 ``` shell
-$ curl -s https://api.wordpress.org/secret-key/1.1/salt/
+curl -s https://api.wordpress.org/secret-key/1.1/salt/
 ```
 
 ## Probamos que funciona

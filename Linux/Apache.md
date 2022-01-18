@@ -5,24 +5,24 @@ Apache está disponible en los repositorios de software predeterminados de Ubunt
 Empiece por actualizar el índice de paquetes local para reflejar los cambios ascendentes más recientes.
 
 ``` bash
-$ sudo apt-get update
+sudo apt-get update
 ```
 
 Después Instale Apache.
 
 ``` bash
-$ sudo apt-get install apache2 -y
+sudo apt-get install apache2 -y
 ```
 
 Se debería iniciar de forma automática; el estado se puede comprobar mediante systemctl.
 
 ``` bash
-$ sudo systemctl status apache2 --no-pager
+sudo systemctl status apache2 --no-pager
 ```
 
 El comando systemctl devuelve algo parecido a la salida siguiente.
 
-```
+``` text
 apache2.service - The Apache HTTP Server
    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
   Drop-In: /lib/systemd/system/apache2.service.d
@@ -57,16 +57,16 @@ Es necesario ajustar el firewall para permitir el acceso externo a los puertos w
 
 Durante la instalación, Apache se registra con UFW para proporcionar algunos perfiles de aplicación que pueden utilizarse para habilitar o deshabilitar el acceso a Apache a través del firewall.
 
-Para activar el cortafuegos UFW 
+Para activar el cortafuegos UFW
 
 ``` shell
-$ sudo ufw enable
+sudo ufw enable
 ```
 
 Para enumerar los perfiles de aplicación ufw escribimos lo siguiente:
 
 ``` shell
-$ sudo ufw app list
+sudo ufw app list
 ```
 
 Obtendrá una lista de los perfiles de aplicación:
@@ -88,13 +88,13 @@ Como lo indica el resultado, hay tres perfiles disponibles para Apache:
 Abrimos el perfil Apache Full que nos permite hacceder a traves de http y https.
 
 ``` shell
-$ sudo ufw allow 'Apache'
+sudo ufw allow 'Apache'
 ```
 
 Comprobamos que se ha modificado la configuración
 
 ``` shell
-$ sudo ufw app status
+sudo ufw app status
 ```
 
 El resultado proporcionará una lista del tráfico de HTTP que se permite:
@@ -119,40 +119,40 @@ Desde un navegador probamos que podemos navegar.
 Para detener su servidor web, escriba lo siguiente:
 
 ``` shell
-$ sudo systemctl stop apache2
+sudo systemctl stop apache2
 ```
 
 Para iniciar el servidor web cuando no esté activo, escriba lo siguiente:
 
 ``` shell
-$ sudo systemctl start apache2
+sudo systemctl start apache2
 ```
 
 Para detener y luego iniciar el servicio de nuevo, escriba lo siguiente:
 
 ``` shell
-$ sudo systemctl restart apache2
+sudo systemctl restart apache2
 ```
 
 Si solo realiza cambios de configuración, Apache a menudo puede recargarse sin cerrar conexiones. Para hacerlo, utilice este comando:
 
 ``` shell
-$ sudo systemctl reload apache2
+sudo systemctl reload apache2
 ```
 
 Por defecto, Apache está configurado para iniciarse automáticamente cuando el servidor lo hace. Si no es lo que quiere, deshabilite este comportamiento escribiendo lo siguiente:
 
 ``` shell
-$ sudo systemctl disable apache2
+sudo systemctl disable apache2
  ```
 
 Para volver a habilitar el servicio de modo que se cargue en el inicio, escriba lo siguiente:
 
 ``` shell
-$ sudo systemctl enable apache2
-``` 
+sudo systemctl enable apache2
+```
 
-## Configurar hosts virtuales 
+## Configurar hosts virtuales
 
 Al emplear el servidor web Apache, puede utilizar hosts virtuales para encapsular detalles de configuración y alojar más de un dominio desde un único servidor. 
 
@@ -166,27 +166,27 @@ dejaremos */var/www/html* como directorio predeterminado que se suministrará si
 Cree el directorio para your_domain de la siguiente manera:
 
 ``` shell
-$ sudo mkdir /var/www/tu_domain
-``` 
+sudo mkdir /var/www/tu_domain
+```
 
 A continuación, asigne la propiedad del directorio con la variable de entorno $USER:
 
 ``` shell
-$ sudo chown -R $USER:$USER /var/www/your_domain
-``` 
+sudo chown -R $USER:$USER /var/www/your_domain
+```
 
 Los permisos de los roots web deberían ser correctos si no modificó el valor umask, que establece permisos de archivos predeterminados.
 Para asegurarse de que sus permisos sean correctos y permitir al propietario leer, escribir y ejecutar los archivos, y a la vez conceder solo permisos de lectura y ejecución a los grupos y terceros, puede ingresar el siguiente comando:
 
 ``` shell
-$ sudo chmod -R 755 /var/www/your_domain
-``` 
+sudo chmod -R 755 /var/www/your_domain
+```
 
 A continuación, cree una página de ejemplo *index.html* utilizando nano o su editor favorito:
 
 ``` shell
 sudo nano /var/www/your_domain/index.html
-``` 
+```
 
 Dentro de ellao, podemos poner un ejemplo de este tipo.
 
@@ -201,13 +201,13 @@ Dentro de ellao, podemos poner un ejemplo de este tipo.
 </html>
 ```
 
-Para que Apache proporcione este contenido, es necesario crear un archivo de host virtual con las directivas correctas. 
-En lugar de modificar el archivo de configuración predeterminado situado en */etc/apache2/sites-available/000-default.conf* directamente, 
+Para que Apache proporcione este contenido, es necesario crear un archivo de host virtual con las directivas correctas.
+En lugar de modificar el archivo de configuración predeterminado situado en */etc/apache2/sites-available/000-default.conf* directamente,
 vamos a crear uno nuevo en */etc/apache2/sites-available/tu_domain.conf*:
 
 ``` shell
-$ sudo nano /etc/apache2/sites-available/tu_domain.conf
-``` 
+sudo nano /etc/apache2/sites-available/tu_domain.conf
+```
 
 Péguelo en el siguiente bloque de configuración, similar al predeterminado, pero actualizado para nuestro nuevo directorio y nombre de dominio:
 
@@ -225,26 +225,26 @@ Péguelo en el siguiente bloque de configuración, similar al predeterminado, pe
 Habilitaremos el archivo con la herramienta *a2ensite*:
 
 ``` shell
-$ sudo a2ensite tu_domain.conf
-``` 
+sudo a2ensite tu_domain.conf
+```
 
 Deshabilite el sitio predeterminado definido en 000-default.conf:
 
 ``` shell
-$ sudo a2dissite 000-default.conf
-``` 
+sudo a2dissite 000-default.conf
+```
 
 A continuación, realizaremos una prueba para ver que no haya errores de configuración:
 
 ``` shell
-$ sudo apache2ctl configtest
-``` 
+sudo apache2ctl configtest
+```
 
 Reinicie Apache para implementar sus cambios:
 
 ``` shell
-$ sudo systemctl restart apache2
-``` 
+sudo systemctl restart apache2
+```
 
 Para arrancar apache2 en el arranque de Linux, podemos ejecutar:
 
@@ -277,7 +277,7 @@ Ahora que sabe administrar el propio servicio de Apache, debe tomarse unos minut
 
 ## Certificados de seguridad
 
-Podemos crear un certificado de pruebas con openssl de la siguiente forma. 
+Podemos crear un certificado de pruebas con openssl de la siguiente forma.
 
 ``` shell
 openssl genrsa -des3 -out server.key 1024
@@ -307,4 +307,3 @@ SSLCertificateKeyFile /ruta/a/su_dominio.key
 SSLCertificateChainFile /ruta/a/DigiCertCA.crt
 </VirtualHost>
 ```
-
