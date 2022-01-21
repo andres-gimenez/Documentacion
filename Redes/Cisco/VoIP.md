@@ -9,7 +9,7 @@ Creamos dos VLAN's una para datos y otra para voz.
 Para configurar los swiches, se crear dos vlan una para datos y otra para voz, 
 y el interface que conecta con el router lo configuramos en modo trunk.
 
-```
+``` cisco ios
 Switch>en
 Switch#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -31,7 +31,7 @@ Switch(config)#exit
 
 Encendemos el interface del router
 
-```
+``` cisco ios
 Router>en
 Router#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -44,7 +44,7 @@ Router#
 Para configurar los routers, hay que crear interfaces virutales,
 encapsulamos con **dot1Q** al vlan de datos y le damos una IP.
 
-```
+``` cisco ios
 Router>en
 Router#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
@@ -63,7 +63,7 @@ Router(config)#
 
 Configuramos un DHCP para cada VLAN tanto datos como voz
 
-```
+``` cisco ios
 Router#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
 Router(config)#ip dhcp pool datos
@@ -80,7 +80,7 @@ Router(config)#ip dhcp excluded-address 192.168.20.1
 Router(config)#ip dhcp excluded-address 192.168.30.1
 ```
 
-## Configurar telefonia.
+## Configurar telefonia
 
 Creamos el servicio de telefonia ip en el router con **telephony-service**:
 1. Establecemos el número máximo de canales con **max-dn 5**.
@@ -88,7 +88,8 @@ Creamos el servicio de telefonia ip en el router con **telephony-service**:
 3. Establecemos la IP y el puerto del servicio con **ip source-address 192.168.30.1 port 2000**.
 4. Establecemos autoasignación de teléfono con **auto assign**.
 5. Asignamos los números de telefonos con **number 2001**.
-```
+   
+``` cisco ios
 Router#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
 Router(config)#telephony-service 
@@ -120,7 +121,7 @@ Para enrutar hay que enrutar los datos y la voz
 
 Para enrutar los datos, le damos un ip al interfaz conectada al otro router.
 
-```
+``` cisco ios
 Router#config terminal
 Router(config)#interface serial 0/2/0
 Router(config-if)#ip address 10.10.10.1 255.255.255.252
@@ -130,7 +131,7 @@ Router(config-if)#exit
 
 Definimos la ruta.
 
-```
+``` cisco ios
 Router#config terminal
 Router(config)#router 
 Router(config)#ip route 192.168.40.0 255.255.255.0 10.10.10.2
@@ -143,7 +144,7 @@ Para enrutar la voz.
 el '.' representa un comodín.
 3. Y definimos el destino con **session target** y la IP del router a donde enviar los paquetes.
 
-```
+``` cisco ios
 Router#config terminal
 Router(config)#dial-peer voice 1 voip 
 Router(config-dial-peer)#destination-pattern 300.
