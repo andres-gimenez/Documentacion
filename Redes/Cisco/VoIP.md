@@ -6,7 +6,7 @@ Configurar Voz over IP.
 
 Creamos dos VLAN's una para datos y otra para voz.
 
-Para configurar los swiches, se crear dos vlan una para datos y otra para voz, 
+Para configurar los swiches, se crear dos vlan una para datos y otra para voz,
 y el interface que conecta con el router lo configuramos en modo trunk.
 
 ``` cisco ios
