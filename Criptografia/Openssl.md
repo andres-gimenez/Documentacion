@@ -3,7 +3,10 @@
 ## Crear un certificado de entidad certificadora (CA)
 
 ``` shell
-openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout mi_ca_privado.key -out mi_ca_publico.crt -days 3650
+openssl req -x509 -sha256 -nodes -newkey rsa:4096 \
+-subj "/CN=CA Jovellanos/O=Jovellanos/C=ES" \
+-keyout mi_ca_privado.key -out mi_ca_publico.crt -days 3650 \
+-addext 'extendedKeyUsage=1.2.3.4.1,1.2.3.4.5.6,1.2.3.4.5.7' 
 ```
 
 - x509: Certificado autofirmado
@@ -58,10 +61,17 @@ Para indicar la finalidad del certificado.
 
 -----
 
+Por ejemplo puede quedar de la forma
+
+``` txt
+basicConstraints=critical,CA:FALSE
+extendedKeyUsage=serverAuth,clientAuth
+```
+
 Firmamos el certificado con
 
 ``` shell
-openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.crt -days 3650 -sha1 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
+openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_publico_peticion.crt -days 3650 -sha256 -CAcreateserial -out mi_cert_publico_firmador_por_mi_ca.crt -extfile config.txt
 ```
 
 - x509: Se puede usar entre otras cosas para firmar certificados
@@ -69,7 +79,7 @@ openssl x509 -CA mi_ca_publico.crt -CAkey mi_ca_privado.key -req -in mi_cert_pub
 - CAkey: Clave privada del CA
 - req: Fichero con la petición
 - days: Periodo de validez (10 años)
-- sha1: Firma el certificado con -sha1
+- sha256: Firma el certificado con -sha256
 - CAcreateserial: Añade un número de serie a los certificados firmados con nuestra CA
 - out: Certificado de salida (lo que queremos)
 - extfile: Fichero con parámetros de configuración
