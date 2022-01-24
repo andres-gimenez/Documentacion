@@ -25,7 +25,7 @@ openssl x509 -in mi_ca_publico.crt -text -noout
 
 ## Crear un certificado
 
-Creamos una petición de certificadoo, para enviarlo a una entidad certificadora.
+Creamos una petición de certificado, para enviarlo a una entidad certificadora.
 
 ``` shell
 openssl req -newkey rsa:2048 -subj "/DC=midominio.com/OU=com/CN=micertificado" -keyout mi_cert_privado.key -out mi_cert_publico_peticion.crt
