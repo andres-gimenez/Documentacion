@@ -154,19 +154,19 @@ sudo systemctl enable apache2
 
 ## Configurar hosts virtuales
 
-Al emplear el servidor web Apache, puede utilizar hosts virtuales para encapsular detalles de configuración y alojar más de un dominio desde un único servidor. 
+Al emplear el servidor web Apache, puede utilizar hosts virtuales para encapsular detalles de configuración y alojar más de un dominio desde un único servidor.
 
 Configuraremos un dominio llamado **tu_domain**, pero debería *cambiarlo por su propio nombre de dominio*.
 
 Ubuntu 20.04 tiene habilitado un bloque de servidor por defecto, que está configurado para proporcionar documentos del directorio */var/www/html*.
-Si bien esto funciona bien para un solo sitio, puede ser difícil de manejar si aloja varios. 
-En vez de modificar */var/www/html*, vamos a crear una estructura de directorios dentro de */var/www* para un sitio **tu_domain** y 
+Si bien esto funciona bien para un solo sitio, puede ser difícil de manejar si aloja varios.
+En vez de modificar */var/www/html*, vamos a crear una estructura de directorios dentro de */var/www* para un sitio ***your_domain*** y
 dejaremos */var/www/html* como directorio predeterminado que se suministrará si una solicitud de cliente no coincide con otros sitios.
 
-Cree el directorio para your_domain de la siguiente manera:
+Cree el directorio para *your_domain* de la siguiente manera:
 
 ``` shell
-sudo mkdir /var/www/tu_domain
+sudo mkdir /var/www/your_domain
 ```
 
 A continuación, asigne la propiedad del directorio con la variable de entorno $USER:
@@ -203,10 +203,10 @@ Dentro de ellao, podemos poner un ejemplo de este tipo.
 
 Para que Apache proporcione este contenido, es necesario crear un archivo de host virtual con las directivas correctas.
 En lugar de modificar el archivo de configuración predeterminado situado en */etc/apache2/sites-available/000-default.conf* directamente,
-vamos a crear uno nuevo en */etc/apache2/sites-available/tu_domain.conf*:
+vamos a crear uno nuevo en */etc/apache2/sites-available/your_domain.conf*:
 
 ``` shell
-sudo nano /etc/apache2/sites-available/tu_domain.conf
+sudo nano /etc/apache2/sites-available/your_domain.conf
 ```
 
 Péguelo en el siguiente bloque de configuración, similar al predeterminado, pero actualizado para nuestro nuevo directorio y nombre de dominio:
@@ -214,7 +214,7 @@ Péguelo en el siguiente bloque de configuración, similar al predeterminado, pe
 ``` xml
 <VirtualHost mi_dominio ó IP ó *:80>
     ServerAdmin webmaster@localhost
-    ServerName tu_domain
+    ServerName your_domain
     ServerAlias www.tu_domain
     DocumentRoot /var/www/tu_domain
     ErrorLog ${APACHE_LOG_DIR}/error.log
