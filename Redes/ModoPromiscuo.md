@@ -16,7 +16,7 @@ Modificar el adaptador, para abilitar modo promiscuo
 netsh bridge set adapter 1 forcecompatmode=enable
 ```
 
-Modificar el adaptador, para desabilitar modo promiscuo
+Modificar el adaptador, para deshabilitar modo promiscuo
 
 ``` ps
 netsh bridge set adapter 1 forcecompatmode=disable
