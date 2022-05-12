@@ -83,12 +83,13 @@ Router(config)#ip dhcp excluded-address 192.168.30.1
 ## Configurar telefonia
 
 Creamos el servicio de telefonia ip en el router con **telephony-service**:
+
 1. Establecemos el número máximo de canales con **max-dn 5**.
 2. Establecemos el número máximo de teléfonos con **max-ephones 5**.
 3. Establecemos la IP y el puerto del servicio con **ip source-address 192.168.30.1 port 2000**.
 4. Establecemos autoasignación de teléfono con **auto assign**.
 5. Asignamos los números de telefonos con **number 2001**.
-   
+
 ``` cisco ios
 Router#config terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
