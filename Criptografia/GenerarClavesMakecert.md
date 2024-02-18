@@ -1,4 +1,4 @@
-# Crear claves publica y privada con Macecert
+# Crear claves publica y privada con makecert
 
 ## Generar certificado reiz
 
