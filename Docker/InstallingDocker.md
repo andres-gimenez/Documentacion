@@ -85,3 +85,21 @@ Probamos que funcionan los docker descargando y ejecutando hello-world.
 ``` shell
 docker run hello-world
 ```
+
+## Paso 2 - Instalamos Portainer (Opcional)
+
+Creamos un volumen Docker que contendrá los datos gestionados por el servidor Portainer:
+
+``` shell
+docker volume create portainer_data
+```
+
+Descargar e instalar contenedor Portainer:
+
+``` shell
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
+
+Podemos acceder a Portainer desde el navegador con:
+
+https://ip-servidor:9443
