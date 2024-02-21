@@ -86,7 +86,7 @@ Probamos que funcionan los docker descargando y ejecutando hello-world.
 docker run hello-world
 ```
 
-## Paso 2 - Instalamos Portainer (Opcional)
+## Paso 3 - Instalamos Portainer (Opcional)
 
 Creamos un volumen Docker que contendrá los datos gestionados por el servidor Portainer:
 
